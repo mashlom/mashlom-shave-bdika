@@ -1,0 +1,24 @@
+<div class="container content-tables">
+  <div class="back-button" ng-click="ctrl.closePanel()">
+    <i class="fa-solid fa-arrow-right-long"></i>
+  </div>
+    <table class="table table-striped" style="margin-top: 60px; direction: ltr;">
+       <thead>
+        <tr>
+          <th scope="col">Drug</th>
+          <th scope="col">Dose</th>
+          <th scope="col">Concentration</th>
+          <th scope="col">Max Dose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="drugDefinition in ctrl.drugDefinitonsForUI">
+          <td>{{drugDefinition.drug_name}}</td>
+          <td>{{drugDefinition.dosage}}</td>
+          <td>{{drugDefinition.medical_concentration}}</td>
+          <td>{{drugDefinition.max_dose}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+  

@@ -1,0 +1,13 @@
+{
+    "name": "mashlom.me",
+    "short_name": "Mashlom",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "/assets/logo/IconOnly.png",
+        "sizes": "1280x1024",
+        "type": "image/png"
+      }
+    ],
+    "display": "browser"
+  }

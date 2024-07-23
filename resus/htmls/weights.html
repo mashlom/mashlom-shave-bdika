@@ -1,0 +1,22 @@
+<div class="container content-tables">
+  <div class="back-button" ng-click="ctrl.closePanel()">
+    <i class="fa-solid fa-arrow-right-long"></i>
+  </div>
+    <table class="table table-striped" style="margin-top: 60px;">
+       <thead>
+        <tr>
+          <th scope="col">גיל</th>
+          <th scope="col">משקל לילד</th>
+          <th scope="col">משקל לילדה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="dataForAge in ctrl.airwaysData.dataByAge">
+          <th scope="row">{{ctrl.formatAge(dataForAge.age)}}</th>
+          <td>{{dataForAge.estimatedMaleWeight}}</td>
+          <td>{{dataForAge.estimatedFemaleWeight}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+  

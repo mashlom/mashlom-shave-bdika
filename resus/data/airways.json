@@ -1,0 +1,332 @@
+{
+    "dataByAge": [
+        {
+            "age": "0 month",
+            "cuffedETT": 3,
+            "blade": 0,
+            "lma": 1,
+            "estimatedMaleWeight": 3.4,
+            "estimatedFemaleWeight": 3.2
+        },
+        {
+            "age": "1 month",
+            "cuffedETT": 3,
+            "blade": 1,
+            "lma": 1,
+            "estimatedMaleWeight": 4.5,
+            "estimatedFemaleWeight": 4.2
+        },
+        {
+            "age": "2 month",
+            "cuffedETT": 3,
+            "blade": 1,
+            "lma": 1,
+            "estimatedMaleWeight": 5.5,
+            "estimatedFemaleWeight": 5
+        },
+        {
+            "age": "3 month",
+            "cuffedETT": 3,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 6.4,
+            "estimatedFemaleWeight": 5.8
+        },
+        {
+            "age": "4 month",
+            "cuffedETT": 3,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 7,
+            "estimatedFemaleWeight": 6.4
+        },
+        {
+            "age": "5 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 7.5,
+            "estimatedFemaleWeight": 6.8
+        },
+        {
+            "age": "6 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 7.8,
+            "estimatedFemaleWeight": 7.2
+        },
+        {
+            "age": "7 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 8.2,
+            "estimatedFemaleWeight": 7.6
+        },
+        {
+            "age": "8 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 8.6,
+            "estimatedFemaleWeight": 8
+        },
+        {
+            "age": "9 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 8.9,
+            "estimatedFemaleWeight": 8.2
+        },
+        {
+            "age": "10 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 9.2,
+            "estimatedFemaleWeight": 8.5
+        },
+        {
+            "age": "11 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 9.4,
+            "estimatedFemaleWeight": 8.7
+        },
+        {
+            "age": "12 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 9.6,
+            "estimatedFemaleWeight": 8.9
+        },
+        {
+            "age": "13 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 9.8,
+            "estimatedFemaleWeight": 9.1
+        },
+        {
+            "age": "14 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 10,
+            "estimatedFemaleWeight": 9.3
+        },
+        {
+            "age": "15 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 10.3,
+            "estimatedFemaleWeight": 9.5
+        },
+        {
+            "age": "16 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 10.5,
+            "estimatedFemaleWeight": 9.7
+        },
+        {
+            "age": "17 month",
+            "cuffedETT": 3.5,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 10.7,
+            "estimatedFemaleWeight": 10
+        },
+        {
+            "age": "18 month",
+            "cuffedETT": 4,
+            "blade": 1,
+            "lma": 1.5,
+            "estimatedMaleWeight": 10.9,
+            "estimatedFemaleWeight": 10.2
+        },
+        {
+            "age": "19 month",
+            "cuffedETT": 4,
+            "blade": 2,
+            "lma": 1.5,
+            "estimatedMaleWeight": 11.1,
+            "estimatedFemaleWeight": 10.4
+        },
+        {
+            "age": "20 month",
+            "cuffedETT": 4,
+            "blade": 2,
+            "lma": 1.5,
+            "estimatedMaleWeight": 11.3,
+            "estimatedFemaleWeight": 10.6
+        },
+        {
+            "age": "21 month",
+            "cuffedETT": 4,
+            "blade": 2,
+            "lma": 1.5,
+            "estimatedMaleWeight": 11.5,
+            "estimatedFemaleWeight": 10.8
+        },
+        {
+            "age": "22 month",
+            "cuffedETT": 4,
+            "blade": 2,
+            "lma": 1.5,
+            "estimatedMaleWeight": 11.7,
+            "estimatedFemaleWeight": 11
+        },
+        {
+            "age": "23 month",
+            "cuffedETT": 4,
+            "blade": 2,
+            "lma": 2,
+            "estimatedMaleWeight": 12,
+            "estimatedFemaleWeight": 11.2
+        },
+        {
+            "age": "24 month",
+            "cuffedETT": 4,
+            "blade": 2,
+            "lma": 2,
+            "estimatedMaleWeight": 12.2,
+            "estimatedFemaleWeight": 11.4
+        },
+        {
+            "age": "3 year",
+            "cuffedETT": 4,
+            "blade": 2,
+            "lma": 2,
+            "estimatedMaleWeight": 14,
+            "estimatedFemaleWeight": 14
+        },
+        {
+            "age": "4 year",
+            "cuffedETT": 4.5,
+            "blade": 2,
+            "lma": 2,
+            "estimatedMaleWeight": 16,
+            "estimatedFemaleWeight": 16
+        },
+        {
+            "age": "5 year",
+            "cuffedETT": 4.5,
+            "blade": 2,
+            "lma": 2,
+            "estimatedMaleWeight": 18,
+            "estimatedFemaleWeight": 18
+        },
+        {
+            "age": "6 year",
+            "cuffedETT": 5,
+            "blade": 2,
+            "lma": 2,
+            "estimatedMaleWeight": 21,
+            "estimatedFemaleWeight": 20
+        },
+        {
+            "age": "7 year",
+            "cuffedETT": 5,
+            "blade": 3,
+            "lma": 2.5,
+            "estimatedMaleWeight": 23,
+            "estimatedFemaleWeight": 22
+        },
+        {
+            "age": "8 year",
+            "cuffedETT": 5.5,
+            "blade": 3,
+            "lma": 2.5,
+            "estimatedMaleWeight": 26,
+            "estimatedFemaleWeight": 25
+        },
+        {
+            "age": "9 year",
+            "cuffedETT": 5.5,
+            "blade": 3,
+            "lma": 2.5,
+            "estimatedMaleWeight": 28,
+            "estimatedFemaleWeight": 29
+        },
+        {
+            "age": "10 year",
+            "cuffedETT": 6,
+            "blade": 3,
+            "lma": 2.5,
+            "estimatedMaleWeight": 32,
+            "estimatedFemaleWeight": 33
+        },
+        {
+            "age": "11 year",
+            "cuffedETT": 6,
+            "blade": 3,
+            "lma": 2.5,
+            "estimatedMaleWeight": 36,
+            "estimatedFemaleWeight": 37
+        },
+        {
+            "age": "12 year",
+            "cuffedETT": 6.5,
+            "blade": 3,
+            "lma": 3,
+            "estimatedMaleWeight": 40,
+            "estimatedFemaleWeight": 42
+        },
+        {
+            "age": "13 year",
+            "cuffedETT": 6.5,
+            "blade": 3,
+            "lma": 3,
+            "estimatedMaleWeight": 45,
+            "estimatedFemaleWeight": 46
+        },
+        {
+            "age": "14 year",
+            "cuffedETT": 7,
+            "blade": 3,
+            "lma": 4,
+            "estimatedMaleWeight": 51,
+            "estimatedFemaleWeight": 49
+        },
+        {
+            "age": "15 year",
+            "cuffedETT": 7,
+            "blade": 3,
+            "lma": 4,
+            "estimatedMaleWeight": 56,
+            "estimatedFemaleWeight": 52
+        },
+        {
+            "age": "16 year",
+            "cuffedETT": 7.5,
+            "blade": 4,
+            "lma": 4,
+            "estimatedMaleWeight": 61,
+            "estimatedFemaleWeight": 54
+        },
+        {
+            "age": "17 year",
+            "cuffedETT": 7.5,
+            "blade": 4,
+            "lma": 4,
+            "estimatedMaleWeight": 65,
+            "estimatedFemaleWeight": 55
+        },
+        {
+            "age": "18 year",
+            "cuffedETT": 7.5,
+            "blade": 4,
+            "lma": 4,
+            "estimatedMaleWeight": 67,
+            "estimatedFemaleWeight": 56
+        }
+    ]
+}

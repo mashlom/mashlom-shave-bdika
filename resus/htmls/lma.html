@@ -1,0 +1,24 @@
+<div class="container content-tables">
+  <div class="back-button" ng-click="ctrl.closePanel()">
+    <i class="fa-solid fa-arrow-right-long"></i>
+  </div>
+    <table class="table table-striped" style="margin-top: 60px;">
+       <thead>
+        <tr>
+          <th scope="col">גיל</th>
+          <th scope="col">Cuffed ETT</th>
+          <th scope="col">Blade</th>
+          <th scope="col">LMA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="dataForAge in ctrl.airwaysData.dataByAge">
+          <th scope="row">{{ctrl.formatAge(dataForAge.age)}}</th>
+          <td>{{dataForAge.cuffedETT}}</td>
+          <td>{{dataForAge.blade}}</td>
+          <td>{{dataForAge.lma}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+  

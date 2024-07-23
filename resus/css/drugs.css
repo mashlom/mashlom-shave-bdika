@@ -1,0 +1,36 @@
+.drugs-header {
+  color: white;
+  background-color: #103C6E;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1rem;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.tooltip-not-bootstrap {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    background-color: #B9EDE7;
+    color: black;
+    padding: 8px;
+    border-radius: 15px;
+    white-space: normal;
+    z-index: 1000;
+  }
+
+  .tooltip-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+  }

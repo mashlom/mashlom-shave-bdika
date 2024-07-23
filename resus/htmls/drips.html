@@ -1,0 +1,54 @@
+<div  style="direction: ltr;" ng-if="!!ctrl.weight">    
+    <h4 class="drugs-header" style="text-align: center;">Drips</h4>
+    <ul class="list-group" ng-repeat="drip in ctrl.dripsDefinitions track by $index" >
+        <li  class="list-group-item">          
+        <div style="display: flex; justify-content: space-between; text-align: left; color: var(--page-font-color);">
+            <span ng-if="drip.calc_type==='DilutionInstructions'">
+                {{drip.name}}: 
+                <b> {{ctrl.calcDilutionPerKg(drip).doseForDilution}} {{ctrl.calcDilutionPerKg(drip).unitsForDilution}}</b>
+                 in
+                <b>{{drip.default_dilution_volume_ml}} ml</b>
+                ({{drip.target_volume_ml_per_hour}}ml/Hr)
+            </span>
+            <span ng-if="drip.calc_type==='InfusionSpeed'">
+              {{drip.name}}:  
+              <b>{{ctrl.calcInfusionSpeed(drip)}}ml/Hr</b>
+              (existing concentration of   {{drip.existing_dilution_concentration}} {{drip.existing_dilution_concentration_dose_unit}}/ml)
+          </span>
+            <i class="fa-solid fa-circle-info"  style="margin-left: 10px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#infoModal1_drips_{{$index}}"></i>
+            <div class="modal fade" id="infoModal1_drips_{{$index}}" tabindex="-1" aria-labelledby="infoModalLabel_drips_{{$index}}" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header green">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <h5 class="modal-title" id="infoModalLabel_drips_{{$index}}">Calculation of <b>{{drip.name}}</b> Drips</h5>                      
+                    </div>                    
+                    <div ng-if="drip.calc_type==='DilutionInstructions'" class="modal-body">                      
+                      <b>Intravenous infusion rate: </b> {{ctrl.getDoseByTimeUnit(drip)}} {{drip.dose_unit}}/kg/{{ (!!drip.dose_per_kg_per_min) ? 'minute' : 'hour' }}<br/>
+                      <b>Calculation for a child weighing {{ctrl.weight}} kg:</b>
+                        <ul>
+                          <li>Total dose per hour: {{ctrl.calcDilutionPerKg(drip).doseBeforeDilution}} {{ctrl.calcDilutionPerKg(drip).unitsBeforeDilution}}
+                            (calculated as {{ctrl.getDoseByTimeUnit(drip)}} {{drip.dose_unit}}/kg/{{ (!!drip.dose_per_kg_per_min) ? 'minute' : 'hour' }} * {{ctrl.weight}} kg {{!!drip.dose_per_kg_per_min ? '* 60 minutes' : ''}})</li>
+                          <li>Dilution: To prepare a solution in {{drip.default_dilution_volume_ml}} ml, add {{ctrl.calcDilutionPerKg(drip).doseForDilution}} {{ctrl.calcDilutionPerKg(drip).unitsForDilution}}
+                             of the drug (calculated as {{ctrl.calcDilutionPerKg(drip).doseBeforeDilution}} {{ctrl.calcDilutionPerKg(drip).unitsBeforeDilution}} * {{drip.default_dilution_volume_ml}} ml)</li>
+                        </ul>
+                        <b>Note:</b> The intravenous infusion rate range is {{drip.allowed_dose_range}}.
+                    </div>
+                    <div ng-if="drip.calc_type==='InfusionSpeed'" class="modal-body">                      
+                      <b>Intravenous infusion rate: </b> {{ctrl.getDoseByTimeUnit(drip)}} {{drip.dose_unit}}/kg/{{ (!!drip.dose_per_kg_per_min) ? 'minute' : 'hour' }}<br/>
+                      <b>Calculation for a child weighing {{ctrl.weight}} kg:</b><br/>
+                        <ul>
+                          <li>Total dose per hour: {{ctrl.getDripDosePerHourPerWeight(drip)}} {{drip.dose_unit}}
+                            (calculated as {{ctrl.getDoseByTimeUnit(drip)}} {{drip.dose_unit}}/kg/{{ (!!drip.dose_per_kg_per_min) ? 'minute' : 'hour' }} * {{ctrl.weight}} kg)</li>
+                          <li>Existing medication dilution: {{drip.existing_dilution_concentration}} {{drip.existing_dilution_concentration_dose_unit}}/ml
+                          <li>Set intravenous infusion rate to: {{ctrl.calcInfusionSpeed(drip)}}ml/Hr (calculated as total dose / concentration)</li>
+                        </ul>
+                        <b>Note:</b> The intravenous infusion rate range is {{drip.allowed_dose_range}}.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </li>
+      </ul>  
+</div>

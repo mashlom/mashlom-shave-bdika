@@ -1,0 +1,169 @@
+:root {
+  --bs-list-group-color: var(--page-font-color);
+  --bs-heading-color: var(--page-font-color);
+  --bs-body-color: var(--page-font-color);
+}
+
+html, body {
+    max-width: 700px; /* Set maximum width for the body */
+    direction: rtl; /* Right-to-left direction */
+    height: 100%;
+    scroll-behavior: smooth;
+    margin: 0 auto; /* Center the body horizontally */
+    padding: 0;
+    font-family: Arial, sans-serif;  
+    color: var(--page-font-color);
+}
+
+h1 {
+  font-size: calc(1.25rem + 1.5vw);
+}
+
+.reset-button {
+  height: calc(1.4rem + 1.5vw);
+  width: calc(1.4rem + 1.5vw);
+  cursor:pointer; margin-right:10px;
+}
+
+.group-container .form-group .form-check {
+  display: inline-block; /* Ensures form checks are displayed in line */
+  margin-right: 1rem; /* Adjust margin between form checks */
+}
+
+.cards-container {
+    width: 100%; /* Set a width */
+    margin: 0 auto; /* Set margin to auto */
+    text-align: left;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.info {
+    font-size: 24px;
+}
+.phototherapy-main-content {        
+    /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/    
+    text-align: justify;
+}
+
+.input-col {  
+  max-width: 120px;
+}
+
+.col-auto-text-cols {      
+  min-width: 130px;
+}
+.col-auto-buttons-cols {      
+    min-width: 130px;
+  }
+
+.back-button {
+    float: right;
+    margin: 5px;    
+    cursor: pointer;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-size: 30px;
+    color: var(--page-font-color);
+  }
+  .back-button:active {
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+  }
+
+  .back-button-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .content-risks {    
+    text-align: center;
+  }
+
+  .risks-header {
+    padding-top: 15px;
+    padding-left: 80px;
+  }
+
+  .risks-container {
+    width: 100%;
+    padding: 0;
+    margin-top: 3dvh;
+  }
+
+  .reset-button {
+    margin-left: 20px;
+	display: grid;
+	align-items: center;
+    justify-content: left;
+  }
+
+  .circle {
+    display: inline-block;
+    width: 0.65em; /* Set the width and height to be the same as the font size */
+    height: 0.65em;
+    border-radius: 50%; /* Create a circle using border-radius */    
+    margin-left: 10px;
+  }
+
+  .age-input {
+    margin-left: 10px;
+  }
+
+
+.list-group {
+  padding: 0px;
+}
+
+.list-group-item {
+  border: none;
+  border-top: 1px solid #6585a0;
+  border-radius: 0; /* Remove rounded corners */
+}
+
+.list-group-item:nth-child(odd) {
+  border: none;
+  border-bottom: 1px solid #6585a0;
+  border-radius: 0; /* Remove rounded corners */
+}
+
+.cards-container {
+  width: 100%; /* Set a width */
+  margin: 0 auto; /* Set margin to auto */
+}
+
+.table {
+  --bs-table-bg: #3DB5A5;
+  --bs-table-color: white;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  --bs-table-color: black;
+  --bs-table-bg-type: #f5fffd;
+  --bs-table-striped-bg: #f5fffd;  
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  --bs-table-color: black;
+  --bs-table-bg-type: #ebf7ff;
+  --bs-table-striped-bg: #ebf7ff;  
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #B9EDE7;
+}
+.modal-title {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 1rem;
+}
+.btn-close {
+  margin-left: auto;
+  position: absolute;
+  right: 10px;
+}
