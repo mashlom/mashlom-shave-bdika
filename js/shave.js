@@ -6,7 +6,7 @@ app.controller("ResusController", ['$scope', '$rootScope', '$timeout', '$http', 
     ctrl.tal = "taltest";
     ctrl.recommendations = {} 
     ctrl.age = "";
-    ctrl.sex = "M";
+    ctrl.sex = "";
 
     function init() {
         $http.get('/data/recommendations.json').then(function (response) {
@@ -39,10 +39,7 @@ app.controller("ResusController", ['$scope', '$rootScope', '$timeout', '$http', 
 
     ctrl.setSex = function(value) {
         ctrl.sex = value;
-        // ctrl.changedValue();
     };
-
-
 }]);
 
 
