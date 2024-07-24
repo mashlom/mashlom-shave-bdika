@@ -19,6 +19,30 @@ app.controller("ResusController", ['$scope', '$rootScope', '$timeout', '$http', 
     ctrl.init = function () {
         init();
     }
+
+    ctrl.shouldRecommend = function(title){
+        let valid = true;
+        if (title.agePredicate){
+            valid = ctrl.isAgeInRange(title.agePredicate);
+        }
+        if (title.sexPredicate){
+            valid = title.sexPredicate === ctrl.sex;
+        }
+
+        return valid;
+    }
+
+    ctrl.isAgeInRange = function(range) {
+        const [min, max] = range.split('-').map(Number);
+        return ctrl.age >= min && ctrl.age <= max;
+    }
+
+    ctrl.setSex = function(value) {
+        ctrl.sex = value;
+        // ctrl.changedValue();
+    };
+
+
 }]);
 
 

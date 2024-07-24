@@ -21,6 +21,10 @@
     <meta name="robots" content="index, follow, NOODP" />
 
     <title>שווה בדיקה</title>
+    <link href="./3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+    <!-- <link rel="stylesheet" href="../common/css/common.css"> -->
+
     <link rel="stylesheet" href="./common/css/page-layout.css" />
     <link rel="stylesheet" href="./common/css/prematurity.css" />
 </head>
@@ -60,40 +64,51 @@
     max-width: 100%;
 ">
     </div>
-
-    
     <div class="page-container">
         <div class="main-content">
-            <div class="row form-group">
+            <div>
                 <div>
                     גיל
                 </div>
-                <div >
+                <div>
                     <input ng-change="ctrl.changedValue()" ng-model-options="{ allowInvalid: true}" inputmode="decimal"
                         type="text" pattern="[0-9]{1,4}[.]{0,1}[0-9]{0,1}" maxlength="4" style="max-width: 90px;"
                         ng-model="ctrl.age" class="form-control" id="age" select-on-click>
                 </div>
+                <div>
+                    <div>
+                        מין:
+                    </div>
+                    <div class="col-auto input-col">
+                        <button id="male" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.sex === 'M' }" ng-click="ctrl.setSex('M')">זכר</button>
+                        <button id="female" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.sex === 'F' }" ng-click="ctrl.setSex('F')">נקבה</button>
+                    </div>            
+                  </div>
             </div>
             <div ng-if="!!ctrl.age&&!!ctrl.sex">
-            <div ng-repeat="section in ctrl.recommendations.sections track by $index">
-                <div class="sub-title">
-                    {{section.name}}
+                <div ng-repeat="section in ctrl.recommendations.sections track by $index">
+                    <div class="sub-title">
+                        {{section.name}}
+                    </div>
+                    <div ng-repeat="title in section.titles track by $index">
+                        <div ng-if="ctrl.shouldRecommend(title)">
+                            <p class="paragraph-title">
+                                {{title.name}}
+                            </p>
+                            <p>
+                                {{title.description}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div ng-repeat="title in section.titles track by $index">
-                    <p class="paragraph-title">
-                        {{title.name}}
-                    </p>
-                    <p>
-                        {{title.description}}
-                    </p>
-                </div>
-            </div>            
-
-                <b>*טופס זה מנוסח בלשון זכר אך מיועד לנשים ולגברים כאחד
+                <b>
+                    *טופס זה מנוסח בלשון זכר אך מיועד לנשים ולגברים כאחד
                 </b>
             </div>
-            </p>
+            
         </div>
+        </p>
+    </div>
     </div>
     <footer class="page-footer">
         <div class="footer-top d-flex justify-content-between align-items-center">
@@ -145,6 +160,7 @@
     <script src="./3rd-party/angularjs/angular.min.js"></script>
     <script src="./3rd-party/angularjs/angular-sanitize.min.js"></script>
     <script src="./3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+    
     <script src="js/shave.js"></script>
 </body>
 
