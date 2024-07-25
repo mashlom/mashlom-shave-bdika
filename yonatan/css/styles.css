@@ -46,8 +46,10 @@
 }
 
 .text {
-    background-color: #D3F3EE;
-    color: #7D1538;
+    /* background-color: #D3F3EE;
+    color: #7D1538; */
+    background-color: #DACC3E;
+    color: black;
     flex-grow: 1;
     display: flex;
     flex-direction: column;

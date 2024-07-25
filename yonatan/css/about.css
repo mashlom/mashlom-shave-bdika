@@ -17,3 +17,17 @@ h5 {
     background-color: #DACC3E;
     font-weight: bold;
 }
+
+.title {
+    background-color: #BC2C1A;
+    color: #fff;
+    font-size: 11px;
+    line-height: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.rounded-box {
+    border-radius: 10px;
+    padding: 5px 20px;
+}
