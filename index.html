@@ -1,10 +1,158 @@
-<html lang="he" dir="rtl">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="direction: rtl;">
-        <h1>mashlom.me בשיתוף עם בית חולים העמק.</h1>
-        <a href="./resus/">למחשבון מינון תרופות החייאה</a>
-    </body>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/assuta/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/assuta/favicon-32x32.png">
+    <meta property="og:image" content='https://assuta-ashdod.mashlom.me/assets/images/assuta/sharing-image.png' />
+    <meta property='og:title' content="שווה בדיקה" />
+    <meta property='og:type' content='Article' />
+    <meta property="og:image:type" content="image/png" />
+    <meta property='og:site_name' content='mashlom.me' />
+    <meta property="og:image:secure_url"
+        content="https://assuta-ashdod.mashlom.me/assets/images/assuta/sharing-image.png" />
+    <meta property='og:url' content="https://assuta-ashdod.mashlom.me/prematurity/contact-isolation" />
+    <meta property='og:description' content="שווה בדיקה" />
+    <meta name="description" content="שווה בדיקה" />
+    <meta name="keywords" content="שווה בדיקה, בדיקה, שווה, רפואה מונעת, אורח חיים בריא" />
+    <meta name="robots" content="index, follow, NOODP" />
+
+    <title>שווה בדיקה</title>
+    <link href="./3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+
+    <link rel="stylesheet" href="./common/css/page-layout.css" />
+    <link rel="stylesheet" href="./common/css/prematurity.css" />
+</head>
+
+<body ng-app="app" ng-controller="ResusController as ctrl"></body>
+
+<body>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J85BPCEQ2Y');
+    </script>
+    <header>
+        <div class="header-top d-flex justify-content-between">
+            <div class="header-top-side logo-side d-flex">
+                <a class="logo" href="" title="Shave Logo">
+                    <img src="./assets/shave_logo_small.gif" alt="Shave Logo">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div style="
+    max-width: 64rem;
+    margin: auto;
+"><img src="./assets/prevenation_upper.jpg" style="
+    max-width: 100%;
+">
+    </div>
+    <div class="page-container">
+        <div class="main-content">
+            <div>
+                <div>
+                    גיל
+                </div>
+                <div>
+                    <input ng-change="ctrl.changedValue()" ng-model-options="{ allowInvalid: true}" inputmode="decimal"
+                        type="text" pattern="[0-9]{1,4}[.]{0,1}[0-9]{0,1}" maxlength="4" style="max-width: 90px;"
+                        ng-model="ctrl.age" class="form-control" id="age" select-on-click>
+                </div>
+                <div>
+                    <div>
+                        מין:
+                    </div>
+                    <div class="col-auto input-col">
+                        <button id="male" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.sex === 'M' }" ng-click="ctrl.setSex('M')">זכר</button>
+                        <button id="female" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.sex === 'F' }" ng-click="ctrl.setSex('F')">נקבה</button>
+                    </div>            
+                  </div>
+            </div>
+            <div ng-if="!!ctrl.age&&!!ctrl.sex">
+                <div ng-repeat="section in ctrl.recommendations.sections track by $index">
+                    <div class="sub-title">
+                        {{section.name}}
+                    </div>
+                    <div ng-repeat="title in section.titles track by $index">
+                        <div ng-if="ctrl.shouldRecommend(title)">
+                            <p class="paragraph-title">
+                                {{title.name}}
+                            </p>
+                            <p>
+                                {{title.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <b>
+                    *טופס זה מנוסח בלשון זכר אך מיועד לנשים ולגברים כאחד
+                </b>
+            </div>
+            
+        </div>
+        </p>
+    </div>
+    </div>
+    <footer class="page-footer">
+        <div class="footer-top d-flex justify-content-between align-items-center">
+            <nav style="margin-right: 20px;">
+                <ul class="d-flex">
+                    <li>
+                        <span class="footer-copy-write">© 2024 אסותא אשדוד</span>
+                    </li>
+                    <li class="hide-on-mobile">
+                        <a class="fmenu-big-link"
+                            href="https://www.assutaashdod.co.il/en/?catid=%7BEE360582-387D-4CE7-9105-BDEF14D4A4DA%7D"
+                            target="_self">
+                            אודות
+                        </a>
+                    </li>
+                    <li class="hide-on-mobile">
+                        <a class="fmenu-big-link" href="https://www.assutaashdod.co.il/en/public_inquiries/"
+                            target="_self">
+                            פניות הציבור
+                        </a>
+                    </li>
+                    <li class="hide-on-mobile">
+                        <a class="fmenu-big-link"
+                            href="https://www.assutaashdod.co.il/en/?catid=%7B0CFCB0BD-DF84-412A-AEA5-ED6C957733F4%7D"
+                            target="_self">
+                            הסדרי נגישות
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav style="margin-top: 10px; margin-bottom: 10px;margin-left: 20px;">
+                <ul class="d-flex">
+                    <li>
+                        <a><img style="margin-left:20px" class="footer-image-size"
+                                src="./assets/images/assuta/human-exp-logo-gray.png" alt="human experience logo" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mashlom.me"><img class="footer-image-size"
+                                src="./assets/images/mashlom/FullLogo_Transparent_NoBuffer.png" alt="mashlom.me" /></a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+
+    <script src="./3rd-party/angularjs/angular.min.js"></script>
+    <script src="./3rd-party/angularjs/angular-sanitize.min.js"></script>
+    <script src="./3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/shave.js"></script>
+</body>
+
 </html>
