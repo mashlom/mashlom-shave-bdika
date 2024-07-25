@@ -1,0 +1,101 @@
+:root {
+    --body-bg-color: white;
+    --footer-bg-color: #D3F3EE;
+    --footer-text-color: black;
+    --divider-color: #7FB7BE;
+    --header-bg-color: #7FB7BE;
+    --header-text-color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-size: 16px;
+    background-color: var(--body-bg-color);
+    overflow: hidden;
+}
+
+.header {
+    flex-shrink: 0;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.header img {
+    height: 40px;
+    margin-left: 10px;
+}
+
+.header-text {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.scrollable-area {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    background-color: var(--footer-bg-color);
+    flex-shrink: 0;
+}
+
+.footer .nav-link {
+    color: var(--footer-text-color);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.footer .navbar-nav {
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    padding-right: 0px;
+}
+
+.footer .navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.footer .navbar-nav .nav-item:not(:last-child)::before {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 1px;
+    background-color: var(--divider-color);
+    margin-left: 10px;
+}
+
+@media (max-width: 576px) {
+    .footer .navbar-nav {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer .navbar-nav .nav-item {
+        margin-left: 15px;
+        margin-right: 10px;
+    }
+
+    .footer .navbar-nav .nav-item:not(:last-child)::before {
+        display: inline-block;
+    }
+}
+
+

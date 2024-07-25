@@ -1,0 +1,154 @@
+
+
+
+.welcome-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.welcome-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1230px;
+    width: 100%;
+    padding: 15px;
+}
+
+.welcome-right, .welcome-left {
+    flex: 1 1 300px;
+    max-width: 600px;
+}
+
+.welcome-right img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.welcome-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.rounded-box {
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text {
+    background-color: #D3F3EE;
+    color: #7D1538;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+
+@media (max-width: 767px) {
+    .welcome-container {
+        flex-direction: column-reverse;
+    }
+
+    .welcome-right, .welcome-left {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .welcome-left {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .welcome-container {
+        flex-wrap: nowrap;
+    }
+
+    .welcome-right, .welcome-left {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+p {
+    font-size: 1.25rem;
+}
+
+.rounded-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.rounded-box > span {
+    margin-bottom: 1rem;
+}
+
+.rounded-box > p {
+    margin-bottom: 1.5rem;
+}
+
+.rounded-box .btn {
+    margin-top: 1rem;
+}
+
+.custom-btn {
+    background-color: #BC2C1A;
+    color: white;
+    padding: 12px 20px;
+}
+
+.control-bar .custom-btn {
+    padding: 8px 15px;
+}
+
+.custom-btn:hover {
+    background-color: #9e2516; /* A slightly darker shade for hover effect */
+    color: white;            
+}
+.content-after-click {
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.control-bar {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.content-text {
+    background-color: #D3F3EE;
+    border-radius: 10px;
+    padding: 20px;
+    color: #7D1538;
+}
+
+@media (max-width: 767px) {
+    .control-bar .row {
+        flex-direction: column;
+    }
+    
+    .control-bar .col-md-4,
+    .control-bar .col-md-5,
+    .control-bar .col-md-3 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
