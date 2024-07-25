@@ -1,0 +1,19 @@
+.about {
+    max-width: 64rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+h5 {
+    margin-top: 15px;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-header {
+    background-color: #DACC3E;
+    font-weight: bold;
+}
