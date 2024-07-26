@@ -5,12 +5,25 @@ app.controller("ResusController", ['$scope', '$rootScope', '$timeout', '$http', 
     window.ctrl = this;
     ctrl.tal = "taltest";
     ctrl.recommendations = {} 
+    ctrl.age_sex_to_data_mapping = {};
+    ctrl.medical_advice_pairs = {};
+    ctrl.well_being_pairs = {};
     ctrl.age = "";
     ctrl.sex = "";
 
     function init() {
         $http.get('/data/recommendations.json').then(function (response) {
             ctrl.recommendations = response.data;
+        });
+
+        $http.get('/data/age_sex_to_data_mapping.json').then(function (response) {
+            ctrl.age_sex_to_data_mapping = response.data;
+        });
+        $http.get('/data/medical_advice_pairs.json').then(function (response) {
+            ctrl.medical_advice_pairs = response.data;
+        });
+        $http.get('/data/well_being_pairs.json').then(function (response) {
+            ctrl.well_being_pairs = response.data;
         });
     };
 
@@ -20,21 +33,17 @@ app.controller("ResusController", ['$scope', '$rootScope', '$timeout', '$http', 
         init();
     }
 
-    ctrl.shouldRecommend = function(title){
-        let valid = true;
-        if (title.agePredicate){
-            valid = ctrl.isAgeInRange(title.agePredicate);
-        }
-        if (title.sexPredicate){
-            valid = title.sexPredicate === ctrl.sex;
-        }
-
-        return valid;
+    ctrl.personalizedRecommendations = function() {
+        const key = `${ctrl.age},${ctrl.sex=='M' ? 'True': 'False'}`;
+        const medicalCaseIds = ctrl.age_sex_to_data_mapping[key]?.medical_case;
+        return ctrl.medical_advice_pairs.filter(caseItem => medicalCaseIds.includes(caseItem.id));
     }
 
-    ctrl.isAgeInRange = function(range) {
-        const [min, max] = range.split('-').map(Number);
-        return ctrl.age >= min && ctrl.age <= max;
+
+    ctrl.personalizedWellbeing = function() {
+        const key = `${ctrl.age},${ctrl.sex=='M' ? 'True': 'False'}`;
+        const medicalCaseIds = ctrl.age_sex_to_data_mapping[key]?.medical_case;
+        return ctrl.well_being_pairs.filter(caseItem => medicalCaseIds.includes(caseItem.id));
     }
 
     ctrl.setSex = function(value) {

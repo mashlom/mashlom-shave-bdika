@@ -77,26 +77,34 @@
                   </div>
             </div>
             <div ng-if="!!ctrl.age&&!!ctrl.sex">
-                <div ng-repeat="section in ctrl.recommendations.sections track by $index">
-                    <div class="sub-title">
-                        {{section.name}}
-                    </div>
-                    <div ng-repeat="title in section.titles track by $index">
-                        <div ng-if="ctrl.shouldRecommend(title)">
-                            <p class="paragraph-title">
-                                {{title.name}}
-                            </p>
-                            <p>
-                                {{title.description}}
-                            </p>
-                        </div>
-                    </div>
+                <div class="sub-title">
+                    המלצות אישיות
                 </div>
-                <b>
-                    *טופס זה מנוסח בלשון זכר אך מיועד לנשים ולגברים כאחד
-                </b>
+                <div ng-repeat="recommendation in ctrl.personalizedRecommendations() track by $index">
+                    <p class="paragraph-title">
+                        {{recommendation.title}}
+                    </p>
+                    <p>
+                        {{recommendation.description}}
+                    </p>
+                </div>
             </div>
-            
+            <div ng-if="!!ctrl.age&&!!ctrl.sex">
+                <div class="sub-title">
+                    אורח חיים בריא
+                </div>
+                <div ng-repeat="recommendation in ctrl.personalizedWellbeing() track by $index">
+                    <p class="paragraph-title">
+                        {{recommendation.title}}
+                    </p>
+                    <p>
+                        {{recommendation.description}}
+                    </p>
+                </div>
+            </div>
+            <b>
+                *טופס זה מנוסח בלשון זכר אך מיועד לנשים ולגברים כאחד
+            </b>
         </div>
         </p>
     </div>
