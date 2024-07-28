@@ -126,6 +126,11 @@ p {
     padding: 15px;
 }
 
+.card-header {
+    background-color: #DACC3E;
+    font-weight: bold;
+}
+
 .control-bar {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
@@ -140,6 +145,11 @@ p {
     border-radius: 10px;
     padding: 20px;
     color: #7D1538;
+}
+
+.paragraph-title  {
+    color: #7D1538;
+    font-weight: bold;
 }
 
 @media (max-width: 767px) {

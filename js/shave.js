@@ -1,6 +1,6 @@
 var app = angular.module("app", []);
 
-app.controller("ResusController", ['$scope', '$rootScope', '$timeout', '$http', function ($scope, $rootScope, $timeout, $http) {
+app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', function ($scope, $rootScope, $timeout, $http) {
     const ctrl = this;
     window.ctrl = this;
     ctrl.tal = "taltest";
@@ -8,47 +8,46 @@ app.controller("ResusController", ['$scope', '$rootScope', '$timeout', '$http', 
     ctrl.age_sex_to_data_mapping = {};
     ctrl.medical_advice_pairs = {};
     ctrl.well_being_pairs = {};
-    ctrl.age = "";
-    ctrl.sex = "";
+    ctrl.age = getParameterByName("age");
+    ctrl.sex = getParameterByName("sex");
+    ctrl.isWelcomePage = true;
+    ctrl.medicalCaseIds = "";
 
     function init() {
-        $http.get('/data/recommendations.json').then(function (response) {
+        $http.get('data/recommendations.json').then(function (response) {
             ctrl.recommendations = response.data;
         });
 
-        $http.get('/data/age_sex_to_data_mapping.json').then(function (response) {
+        $http.get('data/age_sex_to_data_mapping.json').then(function (response) {
             ctrl.age_sex_to_data_mapping = response.data;
         });
-        $http.get('/data/medical_advice_pairs.json').then(function (response) {
+        $http.get('data/medical_advice_pairs.json').then(function (response) {
             ctrl.medical_advice_pairs = response.data;
         });
-        $http.get('/data/well_being_pairs.json').then(function (response) {
+        $http.get('data/well_being_pairs.json').then(function (response) {
             ctrl.well_being_pairs = response.data;
         });
     };
 
     init();
 
-    ctrl.init = function () {
-        init();
-    }
+    ctrl.calculateRecommendations = function() {
+        ctrl.isWelcomePage = false;
+        updateQueryParameter("age", ctrl.age);
+        updateQueryParameter("sex", ctrl.sex);
+        const key = `${ctrl.age},${ctrl.sex=='male' ? 'True': 'False'}`;
+        ctrl.medicalCaseIds = ctrl.age_sex_to_data_mapping[key]?.medical_case;        
+    };
 
     ctrl.personalizedRecommendations = function() {
-        const key = `${ctrl.age},${ctrl.sex=='M' ? 'True': 'False'}`;
-        const medicalCaseIds = ctrl.age_sex_to_data_mapping[key]?.medical_case;
-        return ctrl.medical_advice_pairs.filter(caseItem => medicalCaseIds.includes(caseItem.id));
+        return ctrl.medical_advice_pairs.filter(caseItem => ctrl.medicalCaseIds.includes(caseItem.id));
     }
 
 
     ctrl.personalizedWellbeing = function() {
-        const key = `${ctrl.age},${ctrl.sex=='M' ? 'True': 'False'}`;
-        const medicalCaseIds = ctrl.age_sex_to_data_mapping[key]?.medical_case;
-        return ctrl.well_being_pairs.filter(caseItem => medicalCaseIds.includes(caseItem.id));
+        return ctrl.well_being_pairs.filter(caseItem => ctrl.medicalCaseIds.includes(caseItem.id));
     }
 
-    ctrl.setSex = function(value) {
-        ctrl.sex = value;
-    };
 }]);
 
 

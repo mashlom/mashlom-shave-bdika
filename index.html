@@ -1,36 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport"
-        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/assuta/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/assuta/favicon-32x32.png">
-    <meta property="og:image" content='https://assuta-ashdod.mashlom.me/assets/images/assuta/sharing-image.png' />
-    <meta property='og:title' content="שווה בדיקה" />
-    <meta property='og:type' content='Article' />
-    <meta property="og:image:type" content="image/png" />
-    <meta property='og:site_name' content='mashlom.me' />
-    <meta property="og:image:secure_url"
-        content="https://assuta-ashdod.mashlom.me/assets/images/assuta/sharing-image.png" />
-    <meta property='og:url' content="https://assuta-ashdod.mashlom.me/prematurity/contact-isolation" />
-    <meta property='og:description' content="שווה בדיקה" />
-    <meta name="description" content="שווה בדיקה" />
-    <meta name="keywords" content="שווה בדיקה, בדיקה, שווה, רפואה מונעת, אורח חיים בריא" />
-    <meta name="robots" content="index, follow, NOODP" />
-
-    <title>שווה בדיקה</title>
-    <link href="./3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
-
-    <link rel="stylesheet" href="./common/css/page-layout.css" />
-    <link rel="stylesheet" href="./common/css/prematurity.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שווה בדיקה - רפואה מונעת</title>
+    <link rel="icon" href="assets/medical-report_6181461.svg" type="image/svg+xml">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">    
+    <link href="css/styles.css" rel="stylesheet">    
 </head>
-
-<body ng-app="app" ng-controller="ResusController as ctrl"></body>
-
-<body>
+<body ng-app="app" ng-controller="ShaveController as ctrl">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -39,128 +19,136 @@
 
         gtag('config', 'G-J85BPCEQ2Y');
     </script>
-    <header>
-        <div class="header-top d-flex justify-content-between">
-            <div class="header-top-side logo-side d-flex">
-                <a class="logo" href="" title="Shave Logo">
-                    <img src="./assets/shave_logo_small.gif" alt="Shave Logo">
-                </a>
-            </div>
-        </div>
+    <header class="header">
+        <img src="assets/medical-report_6181461.svg" alt="Logo">
+        <div class="header-text">שווה בדיקה - בריאות ורפואה מונעת</div>
     </header>
-    <div style="
-    max-width: 64rem;
-    margin: auto;
-"><img src="./assets/prevenation_upper.jpg" style="
-    max-width: 100%;
-">
-    </div>
-    <div class="page-container">
-        <div class="main-content">
-            <div>
-                <div>
-                    גיל
-                </div>
-                <div>
-                    <input ng-change="ctrl.changedValue()" ng-model-options="{ allowInvalid: true}" inputmode="decimal"
-                        type="text" pattern="[0-9]{1,4}[.]{0,1}[0-9]{0,1}" maxlength="4" style="max-width: 90px;"
-                        ng-model="ctrl.age" class="form-control" id="age" select-on-click>
-                </div>
-                <div>
-                    <div>
-                        מין:
+    <div class="scrollable-area">
+        <div class="content">
+            <div id="recommendations" class="content-after-click" ng-if="!ctrl.isWelcomePage">
+                <div class="control-bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 mb-2 mb-md-0">
+                            <input ng-model="ctrl.age" inputmode="decimal" type="text" pattern="[0-9]{1,4}" placeholder="הזן גיל"
+                            maxlength="4" class="form-control" id="age-input">
+                        </div>
+                        <div class="col-md-2 mb-2 mb-md-0">
+                            <div id="sex-input" class="d-flex justify-content-start">
+                                <div class="form-check me-3">
+                                    <input type="radio" id="male-input" name="sex-input" ng-model="ctrl.sex" class="form-check-input" value="male">                                    
+                                </div>
+                                <label for="male-input" class="form-check-label" style="margin-right: 10px;">גבר</label>
+                                <div class="form-check">
+                                    <input type="radio" id="female-input" name="sex-input" ng-model="ctrl.sex" class="form-check-input" value="female">                                    
+                                </div>
+                                <label for="female-input" class="form-check-label" style="margin-right: 10px;">אישה</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <button id="calculateRecommendations" ng-click="ctrl.calculateRecommendations()" class="btn custom-btn">חשב המלצות</button>
+                        </div>
                     </div>
-                    <div class="col-auto input-col">
-                        <button id="male" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.sex === 'M' }" ng-click="ctrl.setSex('M')">זכר</button>
-                        <button id="female" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.sex === 'F' }" ng-click="ctrl.setSex('F')">נקבה</button>
-                    </div>            
-                  </div>
+                </div>
+                <div class="mt-4" ng-if="!!ctrl.age&&!!ctrl.sex">
+                    <div class="card">
+                        <div class="card-header">
+                            המלצות אישיות
+                        </div>
+                        <div class="card-body">                          
+                            <div class="card-text" ng-repeat="recommendation in ctrl.personalizedRecommendations() track by $index">
+                                <p class="paragraph-title">
+                                    {{recommendation.title}}
+                                </p>
+                                <p>
+                                    {{recommendation.description}}
+                                </p>
+                            </div>
+                        </div>
+                      </div>                  
+                </div>
+                <div class="mt-4" ng-if="!!ctrl.age&&!!ctrl.sex">
+                    <div class="card">
+                        <div class="card-header">
+                            אורח חיים בריא
+                        </div>
+                        <div class="card-body">                          
+                            <div class="card-text" ng-repeat="recommendation in ctrl.personalizedRecommendations() track by $index">
+                                <p class="paragraph-title">
+                                    {{recommendation.title}}
+                                </p>
+                                <p>
+                                    {{recommendation.description}}
+                                </p>
+                            </div>
+                        </div>
+                      </div>                  
+                </div>                
+                <div class="mt-4">
+                    <b>
+                        *טופס זה מנוסח בלשון זכר אך מיועד לנשים ולגברים כאחד
+                    </b>
+                </div>
             </div>
-            <div ng-if="!!ctrl.age&&!!ctrl.sex">
-                <div class="sub-title">
-                    המלצות אישיות
-                </div>
-                <div ng-repeat="recommendation in ctrl.personalizedRecommendations() track by $index">
-                    <p class="paragraph-title">
-                        {{recommendation.title}}
-                    </p>
-                    <p>
-                        {{recommendation.description}}
-                    </p>
+            <div id="welcome" class="welcome-content" ng-if="ctrl.isWelcomePage == true">
+                <div class="welcome-container">
+                    <div class="welcome-right">
+                        <img src="assets/Doctor_02.jpg" alt="Doctor">
+                    </div>
+                    <div class="welcome-left">
+                        <div class="rounded-box text">
+                            <span class="text-center mb-3"><b>רפואה מונעת תורמת למניעת מחלות, לשיפור איכות חיים ולהארכתם.</b></span>
+                            <p>
+                                "שווה בדיקה" היא תוכנית לאומית, המציעה לכם את פעולות המניעה, החיסונים והבדיקות לאיתור מוקדם של מחלות. ההמלצות המובאות כאן הן המלצות מבוססות ראיות שיש עליהן הסכמה מלאה.
+                            </p>
+                            <div class="row mb-3">
+                                <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                    <input ng-model="ctrl.age" inputmode="decimal" type="text" pattern="[0-9]{1,4}" placeholder="הזן גיל"
+                                    maxlength="4" class="form-control" id="weight">
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-start align-items-center mt-3 mt-md-0">
+                                    <div id="sex" class="d-flex">
+                                        
+                                        <div class="form-check me-2" style="margin-right: 0px !important;">
+                                            <input type="radio" id="male" name="sex" ng-model="ctrl.sex"  class="form-check-input" value="male">                                            
+                                        </div>
+                                        <label for="male" class="form-check-label" style="margin-right: 10px;">גבר</label>                                        
+                                        <div class="form-check">
+                                            <input type="radio" id="female" ng-model="ctrl.sex" name="sex" class="form-check-input" value="female">                                            
+                                        </div>
+                                        <label for="female" class="form-check-label" style="margin-right: 10px;">אישה</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button ng-click="ctrl.calculateRecommendations()" class="btn custom-btn">חשב המלצות</button>
+                            </div>
+                        </div>
+                    </div>              
                 </div>
             </div>
-            <div ng-if="!!ctrl.age&&!!ctrl.sex">
-                <div class="sub-title">
-                    אורח חיים בריא
-                </div>
-                <div ng-repeat="recommendation in ctrl.personalizedWellbeing() track by $index">
-                    <p class="paragraph-title">
-                        {{recommendation.title}}
-                    </p>
-                    <p>
-                        {{recommendation.description}}
-                    </p>
-                </div>
-            </div>
-            <b>
-                *טופס זה מנוסח בלשון זכר אך מיועד לנשים ולגברים כאחד
-            </b>
         </div>
-        </p>
-    </div>
-    </div>
-    <footer class="page-footer">
-        <div class="footer-top d-flex justify-content-between align-items-center">
-            <nav style="margin-right: 20px;">
-                <ul class="d-flex">
-                    <li>
-                        <span class="footer-copy-write">© 2024 אסותא אשדוד</span>
+        <footer class="footer navbar navbar-expand-lg">
+            <div class="container-fluid justify-content-start">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wa.me/?text=%D7%9B%D7%91%D7%A8%20%D7%99%D7%A6%D7%90%20%D7%9C%D7%9A%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%94%20%D7%94%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA%20%D7%A2%D7%91%D7%95%D7%A8%D7%9A%20%D7%91%22%D7%A9%D7%95%D7%95%D7%94%20%D7%91%D7%93%D7%99%D7%A7%D7%94%22?%20%D7%9C%D7%9E%D7%94%20%D7%90%D7%AA%D7%94%20%D7%9E%D7%97%D7%9B%D7%94?%20https://shavebdika.mashlom.me/yonatan" target="_blank" ><i class="fas fa-share-alt"></i></a>
                     </li>
-                    <li class="hide-on-mobile">
-                        <a class="fmenu-big-link"
-                            href="https://www.assutaashdod.co.il/en/?catid=%7BEE360582-387D-4CE7-9105-BDEF14D4A4DA%7D"
-                            target="_self">
-                            אודות
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="terms.html">תנאי שימוש</a>
                     </li>
-                    <li class="hide-on-mobile">
-                        <a class="fmenu-big-link" href="https://www.assutaashdod.co.il/en/public_inquiries/"
-                            target="_self">
-                            פניות הציבור
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">אודות</a>
                     </li>
-                    <li class="hide-on-mobile">
-                        <a class="fmenu-big-link"
-                            href="https://www.assutaashdod.co.il/en/?catid=%7B0CFCB0BD-DF84-412A-AEA5-ED6C957733F4%7D"
-                            target="_self">
-                            הסדרי נגישות
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i></a>
                     </li>
                 </ul>
-            </nav>
-            <nav style="margin-top: 10px; margin-bottom: 10px;margin-left: 20px;">
-                <ul class="d-flex">
-                    <li>
-                        <a><img style="margin-left:20px" class="footer-image-size"
-                                src="./assets/images/assuta/human-exp-logo-gray.png" alt="human experience logo" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mashlom.me"><img class="footer-image-size"
-                                src="./assets/images/mashlom/FullLogo_Transparent_NoBuffer.png" alt="mashlom.me" /></a>
-                    </li>
-
-                </ul>
-            </nav>
-        </div>
-    </footer>
-
-
-    <script src="./3rd-party/angularjs/angular.min.js"></script>
-    <script src="./3rd-party/angularjs/angular-sanitize.min.js"></script>
-    <script src="./3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
-    
-    <script src="js/shave.js"></script>
+            </div>
+        </footer>
+    </div>
+    <script src="3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="3rd-party/angularjs/angular.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/shave.js"></script>    
 </body>
-
 </html>
