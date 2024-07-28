@@ -98,4 +98,6 @@ body {
     }
 }
 
-
+[ng-cloak] {
+    display: none !important;
+}

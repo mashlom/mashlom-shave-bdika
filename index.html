@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שווה בדיקה - רפואה מונעת</title>
+    <title>שווה בדיקה | לוקחים אחריות = בוחרים בבריאות</title>
+
+    <link rel="manifest" href="/apps/common/manifest.json">
+    <meta property='og:title' content="שווה בדיקה | לוקחים אחריות = בוחרים בבריאות "/>
+    <meta property='og:type' content='Article'/>
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property='og:site_name' content='mashlom.me'/>
+    <meta property='og:image' content='https://shavebdika.mashlom.me/assets/FullLogo1200x630.jpg'/>
+    <meta property="og:image:secure_url" content="https://shavebdika.mashlom.me/assets/FullLogo1200x630.jpg" />
+    <meta property='og:url' content="https://shavebdika.mashlom.me"/>
+    <meta property='og:description' content="שווה בדיקה | לוקחים אחריות = בוחרים בבריאות"/>
+    <meta name="description" content="שווה בדיקה | לוקחים אחריות = בוחרים בבריאות" />
+    <meta name="keywords" content="שווה בדיקה, רפואה מונעת, לוקחים אחריות בוחרים בבריאות" />
+    <meta name="robots" content="index, follow, NOODP" />
+        
+
     <link rel="icon" href="assets/medical-report_6181461.svg" type="image/svg+xml">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">    
     <link href="css/styles.css" rel="stylesheet">    
 </head>
@@ -25,7 +40,7 @@
     </header>
     <div class="scrollable-area">
         <div class="content">
-            <div id="recommendations" class="content-after-click" ng-if="!ctrl.isWelcomePage">
+            <div id="recommendations" class="content-after-click" ng-if="!ctrl.isWelcomePage" ng-cloak >
                 <div class="control-bar">
                     <div class="row align-items-center">
                         <div class="col-md-2 mb-2 mb-md-0">
