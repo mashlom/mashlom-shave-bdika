@@ -32,6 +32,9 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
     init();
 
     ctrl.calculateRecommendations = function() {
+        if (!!!ctrl.sex || !!!ctrl.age) {
+            return;
+        }
         ctrl.isWelcomePage = false;
         updateQueryParameter("age", ctrl.age);
         updateQueryParameter("sex", ctrl.sex);
