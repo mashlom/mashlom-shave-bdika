@@ -14,13 +14,14 @@ h5 {
 }
 
 .card-header {
-    background-color: #DACC3E;
+    background-color: #4ef5d7;
+    color: #010955;
     font-weight: bold;
 }
 
 .title {
-    background-color: #BC2C1A;
-    color: #fff;
+    color: var(--body-color);
+    background-color: var(--body-bg-color);
     font-size: 11px;
     line-height: 0px;
     margin-bottom: 10px;

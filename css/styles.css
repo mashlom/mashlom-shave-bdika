@@ -46,10 +46,8 @@
 }
 
 .text {
-    /* background-color: #D3F3EE;
-    color: #7D1538; */
-    background-color: #DACC3E;
-    color: black;
+    background-color: #4ef5d7;
+    color: #010955;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -106,7 +104,7 @@ p {
 }
 
 .custom-btn {
-    background-color: #BC2C1A;
+    background-color: #582FFF;
     color: white;
     padding: 12px 20px;
 }
@@ -116,7 +114,7 @@ p {
 }
 
 .custom-btn:hover {
-    background-color: #9e2516; /* A slightly darker shade for hover effect */
+    background-color: #3e0efa; /* A slightly darker shade for hover effect */
     color: white;            
 }
 .content-after-click {
@@ -127,12 +125,18 @@ p {
 }
 
 .card-header {
-    background-color: #DACC3E;
+    background-color: #4ef5d7;
+    color: #010955;
     font-weight: bold;
 }
 
+.card-body {
+    color: var(--body-color);
+    background-color: var(--body-bg-color);
+}
+
 .control-bar {
-    background-color: #ffffff;
+    background-color: var(--body-bg-color);
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -141,14 +145,14 @@ p {
 }
 
 .content-text {
-    background-color: #D3F3EE;
+    background-color: var(--body-bg-color);
     border-radius: 10px;
     padding: 20px;
-    color: #7D1538;
+    color: var(--body-color);
 }
 
 .paragraph-title  {
-    color: #7D1538;
+    color: var(--body-color);
     font-weight: bold;
 }
 

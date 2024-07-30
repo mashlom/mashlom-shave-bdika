@@ -1,10 +1,11 @@
 :root {
-    --body-bg-color: white;
-    --footer-bg-color: #D3F3EE;
-    --footer-text-color: black;
-    --divider-color: #7FB7BE;
-    --header-bg-color: #7FB7BE;
-    --header-text-color: white;
+    --body-bg-color: #f5f6f7;
+    --body-color: #010955;
+    --footer-bg-color: #010955;
+    --footer-text-color: white;
+    --divider-color: white;
+    --header-bg-color: white;
+    --header-text-color: #010955;
 }
 
 body {
@@ -14,6 +15,7 @@ body {
     margin: 0;
     font-size: 16px;
     background-color: var(--body-bg-color);
+    color: var(--body-color);
     overflow: hidden;
 }
 
