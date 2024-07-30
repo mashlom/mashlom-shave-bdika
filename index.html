@@ -69,7 +69,7 @@
                             המלצות אישיות
                         </div>
                         <div class="card-body">                          
-                            <div class="card-text" ng-repeat="recommendation in ctrl.personalizedRecommendations() track by $index">
+                            <div class="card-text" ng-repeat="recommendation in ctrl.personalizedMedicalRecommendations() track by $index">
                                 <p class="paragraph-title">
                                     {{recommendation.title}}
                                 </p>
@@ -80,13 +80,13 @@
                         </div>
                       </div>                  
                 </div>
-                <div class="mt-4"  ng-if="!!ctrl.medicalCaseIds">
+                <div class="mt-4"  ng-if="!!ctrl.wellbeingCaseIds">
                     <div class="card">
                         <div class="card-header">
                             אורח חיים בריא
                         </div>
                         <div class="card-body">                          
-                            <div class="card-text" ng-repeat="recommendation in ctrl.personalizedWellbeing() track by $index">
+                            <div class="card-text" ng-repeat="recommendation in ctrl.personalizedWellbeingRecommendations() track by $index">
                                 <p class="paragraph-title">
                                     {{recommendation.title}}
                                 </p>
