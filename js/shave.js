@@ -6,26 +6,23 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
     ctrl.tal = "taltest";
     ctrl.recommendations = {} 
     ctrl.age_sex_to_data_mapping = {};
-    ctrl.medical_advice_pairs = {};
-    ctrl.well_being_pairs = {};
+    ctrl.medical_advice_dict = {};
+    ctrl.well_being_pairs_dict = {};
     ctrl.age = getParameterByName("age");
     ctrl.sex = getParameterByName("sex");
     ctrl.isWelcomePage = true;
     ctrl.medicalCaseIds = "";
+    ctrl.wellbeingCaseIds = "";
 
     function init() {
-        $http.get('data/recommendations.json').then(function (response) {
-            ctrl.recommendations = response.data;
-        });
-
         $http.get('data/age_sex_to_data_mapping.json').then(function (response) {
             ctrl.age_sex_to_data_mapping = response.data;
         });
-        $http.get('data/medical_advice_pairs.json').then(function (response) {
-            ctrl.medical_advice_pairs = response.data;
+        $http.get('data/medical_advice_recommendations.json').then(function (response) {
+            ctrl.medical_advice_dict =  Object.fromEntries(response.data.map(item => [item.id, item]));
         });
-        $http.get('data/well_being_pairs.json').then(function (response) {
-            ctrl.well_being_pairs = response.data;
+        $http.get('data/well_being_recommendations.json').then(function (response) {
+            ctrl.well_being_pairs_dict =  Object.fromEntries(response.data.map(item => [item.id, item]));
         });
     };
 
@@ -40,15 +37,15 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
         updateQueryParameter("sex", ctrl.sex);
         const key = `${ctrl.age},${ctrl.sex=='male' ? 'True': 'False'}`;
         ctrl.medicalCaseIds = ctrl.age_sex_to_data_mapping[key]?.medical_case;        
+        ctrl.wellbeingCaseIds = ctrl.age_sex_to_data_mapping[key]?.wellbeing_case;        
     };
 
-    ctrl.personalizedRecommendations = function() {
-        return ctrl.medical_advice_pairs.filter(caseItem => ctrl.medicalCaseIds.includes(caseItem.id));
+    ctrl.personalizedMedicalRecommendations = function() {
+        return ctrl.medicalCaseIds.map(key => ctrl.medical_advice_dict[key]);
     }
 
-
-    ctrl.personalizedWellbeing = function() {
-        return ctrl.well_being_pairs.filter(caseItem => ctrl.medicalCaseIds.includes(caseItem.id));
+    ctrl.personalizedWellbeingRecommendations = function() {
+        return ctrl.wellbeingCaseIds.map(key => ctrl.well_being_pairs_dict[key]);
     }
 
 }]);
