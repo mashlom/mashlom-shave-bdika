@@ -59,7 +59,8 @@
                             </div>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
-                            <button id="calculateRecommendations" ng-click="ctrl.calculateRecommendations()" class="btn custom-btn">חשב המלצות</button>
+                            <button id="calculateRecommendations" ng-disabled="!ctrl.inputSatisifed()"
+                                    ng-click="ctrl.calculateRecommendations()" class="btn custom-btn">חשב המלצות</button>
                         </div>
                     </div>
                 </div>
@@ -133,8 +134,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="d-flex justify-content-start align-items-center mb-3">
+                                <input type="checkbox" id="terms" class="form-check-input me-2" ng-model="ctrl.termsAccepted" style="margin-left:10px;">
+                                <label for="terms" class="form-check-label" style="font-size:1rem;">
+                                    אני מסכים <a href="terms.html">לתנאי השימוש</a> באתר
+                                </label>
+                            </div>
                             <div class="d-flex justify-content-center">
-                                <button ng-click="ctrl.calculateRecommendations()" class="btn custom-btn">חשב המלצות</button>
+                                <button ng-click="ctrl.calculateRecommendations()" ng-disabled="!ctrl.termsAccepted || !ctrl.inputSatisifed()" class="btn custom-btn">חשב המלצות</button>
                             </div>
                         </div>
                     </div>              

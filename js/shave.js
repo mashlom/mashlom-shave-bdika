@@ -3,7 +3,7 @@ var app = angular.module("app", []);
 app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', function ($scope, $rootScope, $timeout, $http) {
     const ctrl = this;
     window.ctrl = this;
-    ctrl.tal = "taltest";
+    ctrl.termsAccepted = false;
     ctrl.recommendations = {} 
     ctrl.age_sex_to_data_mapping = {};
     ctrl.medical_advice_dict = {};
@@ -12,7 +12,7 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
     ctrl.sex = getParameterByName("sex");
     ctrl.isWelcomePage = true;
     ctrl.medicalCaseIds = "";
-    ctrl.wellbeingCaseIds = "";
+    ctrl.wellbeingCaseIds = "";    
 
     function init() {
         $http.get('data/age_sex_to_data_mapping.json').then(function (response) {
@@ -28,10 +28,22 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
 
     init();
 
+    ctrl.inputSatisifed = function() {
+        return !!ctrl.sex && !!ctrl.age;
+    };
+
+    ctrl.markAsAcceptedTerms = function() {
+        if (ctrl.termsAccepted) {
+            const currentTimestamp = Date.now();
+            localStorage.setItem('lastAccepetedTerms', currentTimestamp.toString());
+        }
+    };
+
     ctrl.calculateRecommendations = function() {
-        if (!!!ctrl.sex || !!!ctrl.age) {
+        if (!ctrl.inputSatisifed()) {
             return;
         }
+        ctrl.markAsAcceptedTerms();
         ctrl.isWelcomePage = false;
         updateQueryParameter("age", ctrl.age);
         updateQueryParameter("sex", ctrl.sex);
