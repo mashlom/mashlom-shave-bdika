@@ -1,6 +1,6 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ['ngSanitize']);
 
-app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', function ($scope, $rootScope, $timeout, $http) {
+app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', '$sce', '$compile', function ($scope, $rootScope, $timeout, $http, $sce, $compile) {
     const ctrl = this;
     window.ctrl = this;
     ctrl.termsAccepted = false;
@@ -13,6 +13,9 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
     ctrl.isWelcomePage = true;
     ctrl.medicalCaseIds = "";
     ctrl.wellbeingCaseIds = "";    
+    ctrl.height = "";
+    ctrl.weight = "";
+    ctrl.bmi_results = {};
 
     function init() {
         $http.get('data/age_sex_to_data_mapping.json').then(function (response) {
@@ -24,9 +27,49 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
         $http.get('data/well_being_recommendations.json').then(function (response) {
             ctrl.well_being_pairs_dict =  Object.fromEntries(response.data.map(item => [item.id, item]));
         });
+        $http.get('data/bmi_results.json').then(function (response) {
+            ctrl.bmi_results = response.data;
+        });
     };
 
     init();
+
+    ctrl.trustedHtml = function(html) {
+        return $sce.trustAsHtml(html);
+    };
+
+    // Function to compile HTML to activate directives
+    ctrl.compileHtml = function(element) {
+        var el = angular.element(element);
+        $compile(el.contents())($scope);
+    };
+    
+    ctrl.calcBMI = function(){
+        var heightInMeters = ctrl.height / 100;
+
+        // Calculate BMI using the formula: weight (kg) / (height (m) ^ 2)
+        var bmi = ctrl.weight / (heightInMeters * heightInMeters);
+    
+        // Return the calculated BMI
+        return bmi.toFixed(1);
+    }
+
+    ctrl.getBmiRangeKey = function() {
+        const bmi = ctrl.calcBMI();
+        if (bmi < 18.5) {
+            return 'underweight';
+        } else if (bmi >= 18.5 && bmi < 25) {
+            return 'normal';
+        } else if (bmi >= 25 && bmi < 30) { // Updated comparison for correct logic
+            return 'overweight';
+        } else {
+            return 'obesity';
+        }
+    };
+
+    ctrl.getBMIText = function(){
+        return ctrl.bmi_results[ctrl.getBmiRangeKey()]?.text;
+    }
 
     ctrl.inputSatisifed = function() {
         return !!ctrl.sex && !!ctrl.age;
@@ -61,6 +104,15 @@ app.controller("ShaveController", ['$scope', '$rootScope', '$timeout', '$http', 
     }
 
 }]);
+
+app.directive('bmi', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'htmls/bmi.html',
+        link: function (scope, element, attrs) {
+        }
+    };
+});
 
 
 app.directive('selectOnClick', ['$window', function ($window) {

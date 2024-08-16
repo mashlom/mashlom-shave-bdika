@@ -74,8 +74,7 @@
                                 <p class="paragraph-title">
                                     {{recommendation.title}}
                                 </p>
-                                <p>
-                                    {{recommendation.description}}
+                                <p ng-bind-html="recommendation.description">
                                 </p>
                             </div>
                         </div>
@@ -91,9 +90,10 @@
                                 <p class="paragraph-title">
                                     {{recommendation.title}}
                                 </p>
-                                <p>
-                                    {{recommendation.description}}
-                                </p>
+                                <!-- <p ng-bind-html="ctrl.trustedHtml(recommendation.description)" ng-init="ctrl.compileHtml($event)"></p> -->
+                                <!-- <div ng-bind-html="ctrl.trustedHtml(recommendation.description)" ng-init="ctrl.compileHtml(this)"></div> -->
+                                <p ng-bind-html="recommendation.description"></p>
+                                <bmi></bmi>
                             </div>
                         </div>
                       </div>                  
@@ -169,6 +169,7 @@
     </div>
     <script src="3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="3rd-party/angularjs/angular.min.js"></script>
+    <script src="3rd-party/angularjs/angular-sanitize.min.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/shave.js"></script>    
 </body>
